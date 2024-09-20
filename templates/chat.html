@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Lab Report Checker</title>
+</head>
+<body>
+    <h2>Medical Lab Report Checker</h2>
+    <p>Please enter your lab test results or upload a PDF medical report for analysis:</p>
+
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <label for="age">Age:</label><br>
+        <input type="text" id="age" name="age" placeholder="Enter your age"><br><br>
+
+        <label for="cholesterol">Cholesterol (mg/dL):</label><br>
+        <input type="text" id="cholesterol" name="cholesterol" placeholder="Enter your cholesterol level"><br><br>
+
+        <label for="bp">Blood Pressure (mm Hg):</label><br>
+        <input type="text" id="bp" name="bp" placeholder="Enter your blood pressure"><br><br>
+
+        <label for="glucose">Glucose (mg/dL):</label><br>
+        <input type="text" id="glucose" name="glucose" placeholder="Enter your glucose level"><br><br>
+
+        <label for="bmi">BMI:</label><br>
+        <input type="text" id="bmi" name="bmi" placeholder="Enter your BMI"><br><br>
+
+        <label for="file">Upload Medical Report (PDF):</label><br>
+        <input type="file" id="file" name="file"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    {% if prediction_text %}
+        <h3>Result:</h3>
+        <p>{{ prediction_text }}</p>
+    {% endif %}
+</body>
+</html>
